@@ -1,0 +1,14 @@
+.container {
+    width: 80%;
+    display: block;
+    margin: 50px auto;
+    font-family: Arial, sans-serif;
+}
+
+a {
+    color: #388e3c;
+}
+
+svg {
+    margin-top: 20px;
+}

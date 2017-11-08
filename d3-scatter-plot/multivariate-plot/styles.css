@@ -1,0 +1,78 @@
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+.container {
+  display: block;
+  margin: 15px;
+}
+
+h1 {
+  font-size: 24px;
+  color: #0D47A1;
+  margin-bottom: -10px;
+}
+
+h2, .dataSource {
+  font-size: 18px;
+  font-weight: normal;
+  color: #455A64;
+
+}
+
+.dataSource {
+  position: absolute;
+  font-size: 11px;
+  font-style: italic;
+  top: 95px;
+}
+
+svg {
+  margin: 50px 25px;
+  padding: 15px 0 50px 50px;
+  overflow: visible;
+}
+
+.label {
+  color: #1976D2;
+  font-size: 13px;
+  position: absolute;
+}
+
+.yLabel {
+  left: -25px;
+  top: 225px;
+  transform: rotate(-90deg);
+}
+
+.xLabel {
+  top: 700px;
+  left: 515px;
+}
+
+.radiusInfo {
+  font-size: 11px;
+  top: 285px;
+  left: 450px;
+  border-radius: 10px;
+  border: 2px solid #cfe9fc;
+  padding: 8px;
+  color: #546c78;
+  font-style: italic;
+}
+
+.summary {
+  font-size: 12px;
+  position: absolute;
+  width: 475px;
+  top: 735px;
+  left: 115px;
+}
+
+.projector {
+  position: absolute;
+  height: 100px;
+  width: 100px;
+  left: 550px;
+  top: 15px;
+}

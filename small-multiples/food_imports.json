@@ -1,0 +1,262 @@
+{
+    "Canada": {
+      "imports": [
+        {
+          "year": 2000,
+          "dollars": 93.29
+        },
+        {
+          "year": 2001,
+          "dollars": 103.86
+        },
+        {
+          "year": 2002,
+          "dollars": 109.26
+        },
+        {
+          "year": 2003,
+          "dollars": 109.74
+        },
+        {
+          "year": 2004,
+          "dollars": 119.63
+        },
+        {
+          "year": 2005,
+          "dollars": 128.1
+        },
+        {
+          "year": 2006,
+          "dollars": 136.49
+        },
+        {
+          "year": 2007,
+          "dollars": 152.82
+        },
+        {
+          "year": 2008,
+          "dollars": 177.52
+        },
+        {
+          "year": 2009,
+          "dollars": 147.17
+        },
+        {
+          "year": 2010,
+          "dollars": 163.69
+        },
+        {
+          "year": 2011,
+          "dollars": 186.76
+        },
+        {
+          "year": 2012,
+          "dollars": 192.72
+        },
+        {
+          "year": 2013,
+          "dollars": 206.07
+        },
+        {
+          "year": 2014,
+          "dollars": 220.19
+        }
+      ]
+    },
+    "Mexico": {
+      "imports": [
+        {
+          "year": 2000,
+          "dollars": 53.24
+        },
+        {
+          "year": 2001,
+          "dollars": 54.37
+        },
+        {
+          "year": 2002,
+          "dollars": 56.59
+        },
+        {
+          "year": 2003,
+          "dollars": 64.55
+        },
+        {
+          "year": 2004,
+          "dollars": 73.71
+        },
+        {
+          "year": 2005,
+          "dollars": 83.87
+        },
+        {
+          "year": 2006,
+          "dollars": 93.16
+        },
+        {
+          "year": 2007,
+          "dollars": 101.69
+        },
+        {
+          "year": 2008,
+          "dollars": 108.32
+        },
+        {
+          "year": 2009,
+          "dollars": 112.86
+        },
+        {
+          "year": 2010,
+          "dollars": 133.94
+        },
+        {
+          "year": 2011,
+          "dollars": 156.50
+        },
+        {
+          "year": 2012,
+          "dollars": 160.37
+        },
+        {
+          "year": 2013,
+          "dollars": 173.14
+        },
+        {
+          "year": 2014,
+          "dollars": 192.30
+        }
+      ]
+    },
+    "China": {
+      "imports": [
+        {
+          "year": 2000,
+          "dollars": 10.65
+        },
+        {
+          "year": 2001,
+          "dollars": 11.63
+        },
+        {
+          "year": 2002,
+          "dollars": 14.92
+        },
+        {
+          "year": 2003,
+          "dollars": 19.84
+        },
+        {
+          "year": 2004,
+          "dollars": 23.19
+        },
+        {
+          "year": 2005,
+          "dollars":26.91
+        },
+        {
+          "year": 2006,
+          "dollars": 34.75
+        },
+        {
+          "year": 2007,
+          "dollars": 40.14
+        },
+        {
+          "year": 2008,
+          "dollars": 46.36
+        },
+        {
+          "year": 2009,
+          "dollars": 40.19
+        },
+        {
+          "year": 2010,
+          "dollars": 46.53
+        },
+        {
+          "year": 2011,
+          "dollars": 53.32
+        },
+        {
+          "year": 2012,
+          "dollars": 56.04
+        },
+        {
+          "year": 2013,
+          "dollars": 56.48
+        },
+        {
+          "year": 2014,
+          "dollars": 57.56
+        }
+      ]
+    },
+    "India": {
+      "imports": [
+        {
+          "year": 2000,
+          "dollars": 9.66
+        },
+        {
+          "year": 2001,
+          "dollars": 8.55
+        },
+        {
+          "year": 2002,
+          "dollars": 9.22
+        },
+        {
+          "year": 2003,
+          "dollars": 9.92
+        },
+        {
+          "year": 2004,
+          "dollars": 11.00
+        },
+        {
+          "year": 2005,
+          "dollars": 11.00
+        },
+        {
+          "year": 2006,
+          "dollars": 11.43
+        },
+        {
+          "year": 2007,
+          "dollars": 11.72
+        },
+        {
+          "year": 2008,
+          "dollars": 14.93
+        },
+        {
+          "year": 2009,
+          "dollars": 12.50
+        },
+        {
+          "year": 2010,
+          "dollars": 16.77
+        },
+        {
+          "year": 2011,
+          "dollars": 29.21
+        },
+        {
+          "year": 2012,
+          "dollars": 53.62
+        },
+        {
+          "year": 2013,
+          "dollars": 41.11
+        },
+        {
+          "year": 2014,
+          "dollars": 41.55
+        }
+      ]
+    }
+  }
+  
+  
+  
+  

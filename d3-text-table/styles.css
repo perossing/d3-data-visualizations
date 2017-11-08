@@ -1,0 +1,86 @@
+body {
+  font-family: Arial;
+  padding: 10px 50px;
+}
+
+h1 {
+  font-size: 28px;
+  border-bottom: 2px solid gray;
+  width: 650px;
+  padding: 5px;
+}
+
+tr {
+  display: block;
+  margin-left: 10px;
+  font-size: 16px;
+}
+
+.fullWidth {
+  margin-left: -12px;
+  display: block;
+  width: 620px;
+  background: brown;
+  color: #fff;
+  padding: 5px 5px 5px 10px;
+  text-align: left;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+th {
+  text-align: left;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: italic;
+  width: 125px;
+  padding: 5px 10px;
+}
+
+td {
+  width: 125px;
+  padding: 5px 10px;
+  text-align: right;
+}
+
+.firstColumn {
+  text-align: left;
+  width: 450px;
+}
+
+.wineFormat {
+  background: #c5cae9;
+}
+
+.wineFormat.fullWidth {
+  background: #1a237e;
+}
+
+.beerFormat {
+  background: #ffe0b2;
+}
+
+.beerFormat.fullWidth {
+  background: #e65100;
+}
+
+.otherFormat {
+  background: #f0f4c3;
+}
+
+.otherFormat.fullWidth {
+  background: #827717;
+}
+
+.highSugar {
+  color: #fff;
+  font-weight: bold;
+}
+
+.wineFormat.highSugar {
+  background: #7986cb;
+}
+
+.otherFormat.highSugar {
+  background: #afb42b;
+}
