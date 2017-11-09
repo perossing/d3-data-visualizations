@@ -31,4 +31,4 @@ Data from random sample plotting age & income:
 - tooltips showing values
 - styling
 
-https://rawgit.com/perossing/d3-svg-scatterplots/master/interactive-plot/index.html
+[view](https://rawgit.com/perossing/d3-data-visualizations/master/d3-scatter-plot/interactive-plot/index.html)
