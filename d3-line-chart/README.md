@@ -6,4 +6,4 @@ timeline with two variables
 - buttons to show different data sets
 - data from U.S. Energy Information Administration
 
-[view](http://rawgit.com/perossing/d3-line-chart/master/index.html)
+[view](https://rawgit.com/perossing/d3-data-visualizations/master/d3-line-chart/index.html)
