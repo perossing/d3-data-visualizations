@@ -14,7 +14,7 @@ Average ticket price per year is indicated with a label next to each circle and 
 
 Axes labels and legend are added with html/css.
 
-https://rawgit.com/perossing/d3-svg-scatterplot/master/index.html
+[view](https://rawgit.com/perossing/d3-data-visualizations/master/d3-scatter-plot/multivariate-plot/index.html)
 
 
 ### 2) Interactive Scatter Plot
