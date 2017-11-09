@@ -5,4 +5,4 @@
 - charts drawn with svg
 - svg tooltips on hover
 
-[view](https://rawgit.com/perossing/d3-small-multiples/master/index.html)
+[view](https://rawgit.com/perossing/d3-data-visualizations/master/small-multiples/index.html)
