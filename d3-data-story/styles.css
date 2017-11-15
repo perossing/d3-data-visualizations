@@ -4,7 +4,28 @@
 
 body {
   font-family: 'Barlow', sans-serif;
-  padding: 10px 25px;
+  padding: 5px 25px;
+}
+
+h1 {
+  font-size: 24px;
+}
+
+h2 {
+  font-size: 20px;
+  color: #5c39c6;
+  width: 400px;
+  margin: 10px 0;
+}
+
+h2 span {
+  font-size: 15px;
+  font-weight: normal;
+  padding-left: 5px;
+}
+
+.source {
+  margin-left: 15px;
 }
 
 a {
@@ -26,13 +47,18 @@ form {
 }
 
 .barContainer {
-  padding-top: 240px;
+  padding-top: 280px;
   margin-left: 10px;
 }
 
 .stackContainer {
-  padding-top: 80px;
   margin-left: 100px;
+  overflow: visible;
+  width: 125px;
+}
+
+.stackContainer svg {
+  margin-top: 75px;
 }
 
 .arc text,
@@ -44,6 +70,8 @@ form {
 label {
   display: inline-block;
   padding-bottom: 5px;
+  font-size: 14px;
+  color: #666;
 }
 
 input {
@@ -65,14 +93,14 @@ svg {
 
 .pieInfo {
   width: 160px;
-  top: 375px;
+  top: 390px;
   left: 255px;
   text-align: center;
 }
 
 .barInfo {
   width: 200px;
-  top: 255px;
+  top: 270px;
   left: 910px;
   text-align: left;
 }
@@ -99,7 +127,7 @@ svg {
   font-weight: 500;
   padding: 15px 12px;
   text-align: center;
-  top: 450px;
+  top: 465px;
   left: 255px;
   line-height: 120%;
 }
@@ -112,7 +140,7 @@ svg {
   font-weight: 500;
   padding: 15px 12px;
   text-align: left;
-  top: 312px;
+  top: 327px;
   left: 925px;
   line-height: 120%;
 }
@@ -138,4 +166,14 @@ svg {
   padding: 10px;
   text-align: center;
   margin: -50px -0 0 -30px;
+}
+
+.noteInfo {
+  width: 150px;
+  font-size: 13px;
+  font-weight: 400;
+  top: 590px;
+  left: 1000px;
+  color: #666;
+
 }

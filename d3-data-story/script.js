@@ -11,36 +11,34 @@ d3.json('data.json', function (dataset) {
 })
 
 d3.json('data.json', function (dataset) {
-  data = dataset.pets
-  // resetSvg()      
+  data = dataset.pets  
   buildStackChart()
 })
 
 d3.json('data.json', function (dataset) {
-  data = dataset.households
-  // resetSvg()      
+  data = dataset.households    
   buildBarChart()
 })
 
 
 d3.select('input[value=\'number\']').property('checked', true);
 
-// var input = d3.selectAll('.sortChart')
-//   .on('change', sortChart);
+var input = d3.selectAll('.sortChart')
+  .on('change', sortChart);
 
-// var numberRadio = document.querySelector('#number')
+var numberRadio = document.querySelector('#number')
 
-// function sortChart() {
-//   console.log(numberRadio.checked)
+function sortChart() {
+  console.log(numberRadio.checked)
 
-//   if (numberRadio.checked) {
-//     //
-//   } else {
-//     //
-//   }
-//   resetSvg();
-//   buildPieChart();
-// }
+  if (numberRadio.checked) {
+    //
+  } else {
+    //
+  }
+  resetSvg();
+  buildPieChart();
+}
 
 
 function resetSvg() {
@@ -71,9 +69,9 @@ function buildPieChart() {
     .value(function (d) {
       return d.value
     })
-    // .sort(function (a, b) {
-    //   return d3.ascending(a.name, b.name)})
     .sort(function (a, b) {
+    //   return d3.ascending(a.name, b.name)})
+    // .sort(function (a, b) {
       return d3.ascending(a.value, b.value)
     })
 
@@ -216,7 +214,6 @@ function buildStackChart() {
       if (i === 0) last = 0
       else last = i - 1
       barSum = (barSum + data[last].value)
-      console.log(barSum)
       return yScale(barSum - data[0].value)
     })
     .attr('width', xScale.bandwidth())
@@ -228,8 +225,6 @@ function buildStackChart() {
     })
     .attr('stroke', '#fff')
     .attr('stroke-width', 2);
-
-    console.log(barSum)
 
   /* ===== STACK CHART LABELS ===== */
 
@@ -284,12 +279,12 @@ function buildStackChart() {
         .style('opacity', 0)
         .transition()
         .duration(250)
-        .style('opacity', 1)
+        .style('opacity', 0.85)
     });
   bars
     .on('mouseout', function (d) {
       toolTip.style('display', 'none')
-        .style('opacity', 1)
+        .style('opacity', 0.85)
         .transition()
         .duration(250)
         .style('opacity', 0);
@@ -301,12 +296,6 @@ function buildStackChart() {
     .append('p')
     .attr('class', 'info barInfo')
     .text('of ' + data[1].value.toFixed(1) + ' million households with pets...')
-
-  var info = d3.select('.barContainer')
-    .append('p')
-    .attr('class', 'info barInfo')
-    .text('of ' + data[1].value.toFixed(1) + ' million households with pets...')
-
 
 }
 
@@ -370,6 +359,7 @@ function buildBarChart() {
       return i * (barSpacing);
     })
     .attr('dy', 20)
+    .attr('font-size', 15)
 
   var sum = d3.sum(data, function (d) {
     return d.value;
@@ -410,6 +400,14 @@ function buildBarChart() {
         .duration(250)
         .style('opacity', 1);
     });
+
+    
+  /* ===== BAR CHART INFO ===== */
+
+  var info = d3.select('.barContainer')
+  .append('p')
+  .attr('class', 'info noteInfo')
+  .text('numbers and percentages include households with more than one pet')
 
 
 

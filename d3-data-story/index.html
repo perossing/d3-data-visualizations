@@ -10,13 +10,15 @@
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="script.js" defer></script>
   </head>
+
   
   <body>
+
   <h1>Pet Ownership in USA, 2017</h1>
-    <p>source: <a href="http://www.americanpetproducts.org/press_industrytrends.asp" target="_blank">americanpetproducts.org</a></p>
-    
+  <p class="source">source: <a href="http://www.americanpetproducts.org/press_industrytrends.asp" target="_blank">americanpetproducts.org</a></p>
+
     <div class="container pieContainer">
-      <!-- <h2>Pets:</h2> -->
+      <h2>Number of Pets: <span>(millions)</span></h2>
     <form class="sortSelect">
       <label><input type="radio" name="sortChart" id="number" value="number" class="sortChart" checked="true">lowest to highest number</label>
       <br/>
@@ -26,9 +28,11 @@
     </div>
 
     <div class="container stackContainer">
-      <!-- <h2>Households:</h2> -->
+      <h2>Number of Households with Pets: <span>(millions)</span></h2>
     </div>
     <div class="container barContainer"></div>
-    
+
+
+
   </body>
 </html>
