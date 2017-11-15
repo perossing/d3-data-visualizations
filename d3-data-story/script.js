@@ -4,21 +4,30 @@ var data;
 var colorPalette = ['#8adaf5', '#ffbf80', '#e6d299', '#d2c0ac', '#96e9d4', '#c7e963', '#ffadad']
 
 
+/* === SET DATA & CALL BUILD-CHART FUNCTIONS === */
+
+var sortBy = 'numeric'
+
+/* --  pie --  */
 d3.json('data.json', function (dataset) {
   data = dataset.animals
-  // resetSvg()      
-  buildPieChart()
+  buildPieChart(sortBy)
 })
 
+/* -- stacked -- */
 d3.json('data.json', function (dataset) {
-  data = dataset.pets  
+  data = dataset.pets
   buildStackChart()
 })
 
+/* -- bar -- */
 d3.json('data.json', function (dataset) {
-  data = dataset.households    
+  data = dataset.households
   buildBarChart()
 })
+
+
+/* ===== INPUT & ONCLICK TO SORT & RESET PIE CHART ===== */
 
 
 d3.select('input[value=\'number\']').property('checked', true);
@@ -29,34 +38,57 @@ var input = d3.selectAll('.sortChart')
 var numberRadio = document.querySelector('#number')
 
 function sortChart() {
-  console.log(numberRadio.checked)
 
   if (numberRadio.checked) {
-    //
+    sortBy = 'numeric'
   } else {
-    //
+    sortBy = 'alpha'
   }
-  resetSvg();
-  buildPieChart();
+
+  d3.json('data.json', function (dataset) {
+    data = dataset.animals
+    d3.selectAll('.pieChart').remove()
+    d3.selectAll('.pieInfo').remove()
+    d3.selectAll('.piePlaceHolder').remove()
+    buildPieChart(sortBy)
+  })
+}
+
+function sortAlpha() {
+  var sortedPie = d3.pie()
+    .value(function (d) {
+      return d.value
+    })
+    .sort(function (a, b) {
+      return d3.ascending(a.name, b.name)
+    })
+
+  return sortedPie;
 }
 
 
-function resetSvg() {
-  pieSVG.selectAll('arcs').remove()
-  pieSVG.selectAll('g').remove()
-  pieSVG.selectAll('toolTip').remove()
-  pieSVG.selectAll('tipPlaceholder').remove()
+function sortNumeric() {
+  var sortedPie = d3.pie()
+    .value(function (d) {
+      return d.value
+    })
+    .sort(function (a, b) {
+      return d3.ascending(a.value, b.value)
+    })
+
+  return sortedPie;
 }
+
 
 
 /* **************** PIE CHART **************** */
 
-function buildPieChart() {
+function buildPieChart(sortBy) {
 
   var pieW = 500;
   var pieH = 500;
 
-  var pieSVG = d3.select('.pieContainer').append('svg').attr('width', pieW).attr('height', pieH);
+  var pieSVG = d3.select('.pieContainer').append('svg').attr('class', 'pieChart').attr('width', pieW).attr('height', pieH);
 
   var outerRadius = pieW / 2;
   var innerRadius = outerRadius * 0.4;
@@ -65,15 +97,13 @@ function buildPieChart() {
     return d.value;
   });
 
-  var pie = d3.pie()
-    .value(function (d) {
-      return d.value
-    })
-    .sort(function (a, b) {
-    //   return d3.ascending(a.name, b.name)})
-    // .sort(function (a, b) {
-      return d3.ascending(a.value, b.value)
-    })
+  var pie;
+
+  if (sortBy === 'alpha') {
+    pie = sortAlpha()
+  } else {
+    pie = sortNumeric()
+  }
 
   var arc = d3.arc()
     .innerRadius(innerRadius)
@@ -86,7 +116,7 @@ function buildPieChart() {
     .data(pie(data))
     .enter()
     .append('g')
-    .attr('class', 'arc')
+    .attr('class', 'arcs')
     .attr('transform', 'translate(' + outerRadius + ', ' + outerRadius + ')');
 
   arcs.append('path')
@@ -98,7 +128,7 @@ function buildPieChart() {
 
   /* ===== PIE CHART INFO ===== */
 
-    var info = d3.select('.pieContainer')
+  var info = d3.select('.pieContainer')
     .append('p')
     .attr('class', 'info pieInfo')
     .text('of ' + sum.toFixed(2) + ' million pets in U.S. households...')
@@ -106,10 +136,12 @@ function buildPieChart() {
 
   /* ===== PIE TOOLTIPS ===== */
 
+  var group = d3.selectAll('.arcs')
+
   var toolTip = d3.select('.pieContainer').append('div').attr('class', 'toolTip pieTip');
   var tipPlaceholder = d3.select('.pieContainer').append('div').attr('class', 'placeHolder piePlaceHolder').text('move mouse over circle wedges')
 
-  arcs
+  group
     .on('mouseover', function (d) {
       tipPlaceholder
         .style('opacity', 1)
@@ -124,7 +156,7 @@ function buildPieChart() {
         .duration(250)
         .style('opacity', 1)
     });
-  arcs
+  group
     .on('mouseout', function (d) {
       toolTip.style('display', 'none')
         .style('opacity', 1)
@@ -269,7 +301,7 @@ function buildStackChart() {
 
   var toolTip = d3.select('.stackContainer').append('div').attr('class', 'stackTip');
 
-  bars
+  group
     .on('mouseover', function (d) {
 
       toolTip.style('display', 'inline-block')
@@ -281,7 +313,7 @@ function buildStackChart() {
         .duration(250)
         .style('opacity', 0.85)
     });
-  bars
+  group
     .on('mouseout', function (d) {
       toolTip.style('display', 'none')
         .style('opacity', 0.85)
@@ -371,7 +403,7 @@ function buildBarChart() {
   var toolTip = d3.select('.barContainer').append('div').attr('class', 'toolTip barTip');
   var tipPlaceholder = d3.select('.barContainer').append('div').attr('class', 'placeHolder barPlaceHolder').text('move mouse over bars')
 
-  bars
+  group
     .on('mouseover', function (d) {
       tipPlaceholder
         .style('opacity', 1)
@@ -386,7 +418,7 @@ function buildBarChart() {
         .duration(250)
         .style('opacity', 1)
     });
-  bars
+  group
     .on('mouseout', function (d) {
       toolTip.style('display', 'none')
         .style('opacity', 1)
@@ -401,13 +433,13 @@ function buildBarChart() {
         .style('opacity', 1);
     });
 
-    
+
   /* ===== BAR CHART INFO ===== */
 
   var info = d3.select('.barContainer')
-  .append('p')
-  .attr('class', 'info noteInfo')
-  .text('numbers and percentages include households with more than one pet')
+    .append('p')
+    .attr('class', 'info noteInfo')
+    .text('numbers and percentages include households with more than one pet')
 
 
 
