@@ -31,19 +31,15 @@
   ],
   "pets": [
     {
-      "name": "none",
-      "value": 19.16
+      "name": "without pets",
+      "value": 39.81
     },
     {
-      "name": "own",
+      "name": "households with pets",
       "value": 84.6
     }
   ],
   "households": [
-    {
-      "name": "no pets",
-      "value": 0
-    },
     {
       "name": "Birds",
       "value": 7.9

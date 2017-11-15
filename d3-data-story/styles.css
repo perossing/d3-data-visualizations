@@ -3,101 +3,139 @@
 } */
 
 body {
-    font-family: 'Barlow', sans-serif;
-    padding: 10px 25px;
-  }
+  font-family: 'Barlow', sans-serif;
+  padding: 10px 25px;
+}
 
-  a {
-    text-decoration: none;
-    color: #aa39c6;
-    font-weight: 500;
-  }
+a {
+  text-decoration: none;
+  color: #aa39c6;
+  font-weight: 500;
+}
 
-  form {
-    padding: 10px;
-  }
+form {
+  padding: 10px;
+}
 
-  .pieContainer {
-    /* width: 600px; */
-    float: left;
-    padding-left: 50px;
-  }
+.container {
+  float: left;
+}
 
-  .barContainer {
-    float: left;
-    /* border: 1px solid pink; */
-    padding-top: 105px;
-    /* margin-left: 20px; */
-  }
+.pieContainer {
+  padding-left: 50px;
+}
 
-  .stackContainer {
-    /* width: 200px; */
-    height: 600px;
-    float: left;
-    /* border: 1px solid pink; */
-    padding-top: 70px;
-    margin-left: 100px;
-  }
+.barContainer {
+  padding-top: 240px;
+  margin-left: 10px;
+}
 
-  .arc text, .barLabel {
-    fill: #291a0a;
-    font-weight: 500;
-  }
-  
-  .sortSelect {
-    padding-left: 30px;
-  }
-  
-  label {
-    display: inline-block;
-    padding-bottom: 5px;
-  }
-  
-  input {
-    margin-right: 10px;
-  }
-  
-  svg {
-   overflow: visible;
-  }
-  
-  .info {
-    width: 160px;
-    /* color: #291a0a; */
-    color: #6346b9;
-    position: absolute;
-    top: 385px;
-    left: 255px;
-    text-align: center;
-    font-size: 17px;
-    line-height: 125%;
-  }
+.stackContainer {
+  padding-top: 80px;
+  margin-left: 100px;
+}
 
-  .toolTip, .placeHolder {
-    position: absolute;
-    /* display: none; */
-    width: 135px;
-    height: auto;
-    color: #291a0a;
-    font-size: 22px;
-    font-weight: 500;
-    padding: 15px 12px;
-    text-align: center;
-    top: 440px;
-    left: 255px;
-    line-height: 125%;
+.arc text,
+.barLabel {
+  fill: #291a0a;
+  font-weight: 500;
+}
+
+label {
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+input {
+  margin-right: 10px;
+}
+
+svg {
+  /* overflow: visible; */
+  cursor: url("paw-print.svg"), auto;
+}
+
+.info {
+  color: #291a0a;
+  position: absolute;
+  font-size: 18px;
+  line-height: 120%;
+  font-weight: 500;
+}
+
+.pieInfo {
+  width: 160px;
+  top: 375px;
+  left: 255px;
+  text-align: center;
+}
+
+.barInfo {
+  width: 200px;
+  top: 255px;
+  left: 910px;
+  text-align: left;
+}
+
+.stackInfo {
+  left: 500px;
+}
+
+.toolTip {
+  position: absolute;
+  height: auto;
+  color: #5c39c6;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 120%;
+}
+
+
+.pieTip,
+.piePlaceHolder {
+  width: 135px;
+  height: auto;
+  font-size: 22px;
+  font-weight: 500;
+  padding: 15px 12px;
+  text-align: center;
+  top: 450px;
+  left: 255px;
+  line-height: 120%;
+}
+
+.barTip,
+.barPlaceHolder {
+  width: 300px;
+  height: auto;
+  font-size: 22px;
+  font-weight: 500;
+  padding: 15px 12px;
+  text-align: left;
+  top: 312px;
+  left: 925px;
+  line-height: 120%;
 }
 
 .placeHolder {
+  position: absolute;
   color: #b6b2af;
   font-size: 16px;
   font-weight: 400;
-  top: 440px;
 }
 
-.stackLabels {
-  fill: #fff;
-  transform: rotate(-90);
+
+.stackTip {
+  position: absolute;
+  display: none;
+  width: 55px;
+  height: 25px;
+  background: #fff;
+  border-radius: 25px;
+  box-shadow: 2px 3px 12px #79609f;
+  color: black;
   font-size: 18px;
-  font-weight: 500;
+  padding: 10px;
+  text-align: center;
+  margin: -50px -0 0 -30px;
 }
