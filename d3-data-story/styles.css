@@ -1,0 +1,103 @@
+/* * {
+  border: 1px solid pink;
+} */
+
+body {
+    font-family: 'Barlow', sans-serif;
+    padding: 10px 25px;
+  }
+
+  a {
+    text-decoration: none;
+    color: #aa39c6;
+    font-weight: 500;
+  }
+
+  form {
+    padding: 10px;
+  }
+
+  .pieContainer {
+    /* width: 600px; */
+    float: left;
+    padding-left: 50px;
+  }
+
+  .barContainer {
+    float: left;
+    /* border: 1px solid pink; */
+    padding-top: 105px;
+    /* margin-left: 20px; */
+  }
+
+  .stackContainer {
+    /* width: 200px; */
+    height: 600px;
+    float: left;
+    /* border: 1px solid pink; */
+    padding-top: 70px;
+    margin-left: 100px;
+  }
+
+  .arc text, .barLabel {
+    fill: #291a0a;
+    font-weight: 500;
+  }
+  
+  .sortSelect {
+    padding-left: 30px;
+  }
+  
+  label {
+    display: inline-block;
+    padding-bottom: 5px;
+  }
+  
+  input {
+    margin-right: 10px;
+  }
+  
+  svg {
+   overflow: visible;
+  }
+  
+  .info {
+    width: 160px;
+    /* color: #291a0a; */
+    color: #6346b9;
+    position: absolute;
+    top: 385px;
+    left: 255px;
+    text-align: center;
+    font-size: 17px;
+    line-height: 125%;
+  }
+
+  .toolTip, .placeHolder {
+    position: absolute;
+    /* display: none; */
+    width: 135px;
+    height: auto;
+    color: #291a0a;
+    font-size: 22px;
+    font-weight: 500;
+    padding: 15px 12px;
+    text-align: center;
+    top: 440px;
+    left: 255px;
+    line-height: 125%;
+}
+
+.placeHolder {
+  color: #b6b2af;
+  font-size: 16px;
+  font-weight: 400;
+  top: 440px;
+}
+
+.stackLabels {
+  fill: #fff;
+  transform: rotate(-90);
+  font-size: 18px;
+  font-weight: 500;
+}

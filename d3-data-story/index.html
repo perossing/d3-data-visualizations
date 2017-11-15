@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello!</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Barlow:400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="script.js" defer></script>
+  </head>
+  
+  <body>
+  <h1>Pet Ownership in USA, 2017</h1>
+    <p>source: <a href="http://www.americanpetproducts.org/press_industrytrends.asp" target="_blank">americanpetproducts.org</a></p>
+    
+    <div class="pieContainer">
+      <!-- <h2>Pets:</h2> -->
+    <form class="sortSelect">
+      <label><input type="radio" name="sortChart" id="number" value="number" class="sortChart" checked="true">lowest to highest number</label>
+      <br/>
+      <label><input type="radio" name="sortChart" id="alpha" value="alpha" checked="true" class="sortChart">alphabetical</label>
+    </form>
+      
+    </div>
+
+    <div class="stackContainer">
+      <!-- <h2>Households:</h2> -->
+    </div>
+    <div class="barContainer"></div>
+    
+  </body>
+</html>

@@ -1,0 +1,76 @@
+{
+  "animals": [
+    {
+      "name": "Birds",
+      "value": 20.3
+    },
+    {
+      "name": "Cats",
+      "value": 94.2
+    },
+    {
+      "name": "Dogs",
+      "value": 89.7
+    },
+    {
+      "name": "Horses",
+      "value": 7.6
+    },
+    {
+      "name": "Fish",
+      "value": 158.1
+    },
+    {
+      "name": "Reptiles",
+      "value": 9.4
+    },
+    {
+      "name": "Small Animals",
+      "value": 14
+    }
+  ],
+  "pets": [
+    {
+      "name": "none",
+      "value": 19.16
+    },
+    {
+      "name": "own",
+      "value": 84.6
+    }
+  ],
+  "households": [
+    {
+      "name": "no pets",
+      "value": 0
+    },
+    {
+      "name": "Birds",
+      "value": 7.9
+    },
+    {
+      "name": "Cats",
+      "value": 47.1
+    },
+    {
+      "name": "Dogs",
+      "value": 60.2
+    },
+    {
+      "name": "Horses",
+      "value": 2.6
+    },
+    {
+      "name": "Fish",
+      "value": 15
+    },
+    {
+      "name": "Reptiles",
+      "value": 4.7
+    },
+    {
+      "name": "Small Animals",
+      "value": 6.7
+    }
+  ]
+}
