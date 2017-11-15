@@ -8,11 +8,11 @@ body {
 }
 
 h1 {
-  font-size: 24px;
+  font-size: 26px;
 }
 
 h2 {
-  font-size: 20px;
+  font-size: 22px;
   color: #5c39c6;
   width: 400px;
   margin: 10px 0;
@@ -48,7 +48,7 @@ form {
 
 .barContainer {
   padding-top: 280px;
-  margin-left: 10px;
+  padding-left: 10px;
 }
 
 .stackContainer {
@@ -61,17 +61,18 @@ form {
   margin-top: 75px;
 }
 
-.arc text,
+.wedges text,
 .barLabel {
   fill: #291a0a;
   font-weight: 500;
+  font-size: 16px;
 }
 
 label {
   display: inline-block;
   padding-bottom: 5px;
-  font-size: 14px;
-  color: #666;
+  font-size: 16px;
+  color: #444;
 }
 
 input {
@@ -79,32 +80,32 @@ input {
 }
 
 svg {
-  /* overflow: visible; */
   cursor: url("paw-print.svg"), auto;
 }
 
 .info {
   color: #291a0a;
   position: absolute;
-  font-size: 18px;
+  font-size: 20px;
   line-height: 120%;
   font-weight: 500;
 }
 
 .pieInfo {
-  width: 160px;
+  width: 130px;
   top: 390px;
-  left: 255px;
+  left: 270px;
   text-align: center;
 }
 
 .barInfo {
-  width: 200px;
+  width: 215px;
   top: 270px;
   left: 910px;
   text-align: left;
 }
 
+/* (these labels are svg text, not html) */
 .stackInfo {
   left: 500px;
 }
@@ -118,7 +119,6 @@ svg {
   line-height: 120%;
 }
 
-
 .pieTip,
 .piePlaceHolder {
   width: 135px;
@@ -127,22 +127,20 @@ svg {
   font-weight: 500;
   padding: 15px 12px;
   text-align: center;
-  top: 465px;
+  top: 455px;
   left: 255px;
-  line-height: 120%;
+  line-height: 115%;
 }
 
 .barTip,
 .barPlaceHolder {
-  width: 300px;
+  width: 240px;
   height: auto;
   font-size: 22px;
   font-weight: 500;
-  padding: 15px 12px;
   text-align: left;
-  top: 327px;
+  top: 345px;
   left: 925px;
-  line-height: 120%;
 }
 
 .placeHolder {
@@ -151,7 +149,6 @@ svg {
   font-size: 16px;
   font-weight: 400;
 }
-
 
 .stackTip {
   position: absolute;
@@ -172,8 +169,8 @@ svg {
   width: 150px;
   font-size: 13px;
   font-weight: 400;
-  top: 590px;
-  left: 1000px;
+  top: 585px;
+  left: 1010px;
   color: #666;
 
 }

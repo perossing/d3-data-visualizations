@@ -30,7 +30,7 @@ d3.json('data.json', function (dataset) {
 /* ===== INPUT & ONCLICK TO SORT & RESET PIE CHART ===== */
 
 
-d3.select('input[value=\'number\']').property('checked', true);
+d3.select('input[value=\'number\']').property('checked', true)
 
 var input = d3.selectAll('.sortChart')
   .on('change', sortChart);
@@ -47,6 +47,17 @@ function sortChart() {
 
   d3.json('data.json', function (dataset) {
     data = dataset.animals
+
+    d3.selectAll('wedges')
+    .attr('opacity', 1)
+    .transition().duration(500)
+    .attr('opacity', 0.75)
+
+    d3.selectAll('pieLabels')
+    .attr('opacity', 1)
+    .transition().duration(500)
+    .attr('opacity', 0.25)
+
     d3.selectAll('.pieChart').remove()
     d3.selectAll('.pieInfo').remove()
     d3.selectAll('.piePlaceHolder').remove()
@@ -66,7 +77,6 @@ function sortAlpha() {
   return sortedPie;
 }
 
-
 function sortNumeric() {
   var sortedPie = d3.pie()
     .value(function (d) {
@@ -79,9 +89,9 @@ function sortNumeric() {
   return sortedPie;
 }
 
-
-
 /* **************** PIE CHART **************** */
+
+// *!*!*!*
 
 function buildPieChart(sortBy) {
 
@@ -112,31 +122,35 @@ function buildPieChart(sortBy) {
     .padRadius(100)
     .cornerRadius(4);
 
-  var arcs = pieSVG.selectAll('g.arc')
+
+  var wedges = pieSVG.selectAll('g.arc')
     .data(pie(data))
     .enter()
     .append('g')
-    .attr('class', 'arcs')
+    .attr('class', 'wedges')
     .attr('transform', 'translate(' + outerRadius + ', ' + outerRadius + ')');
+  
 
-  arcs.append('path')
+  wedges.append('path')
     .attr('fill', function (d, i) {
       return colorPalette[i];
     })
     .attr('d', arc)
-
+    .attr('opacity', 0.75)
+    .transition().duration(500)
+    .attr('opacity', 1)
 
   /* ===== PIE CHART INFO ===== */
 
   var info = d3.select('.pieContainer')
     .append('p')
     .attr('class', 'info pieInfo')
-    .text('of ' + sum.toFixed(2) + ' million pets in U.S. households...')
+    .text('of ' + sum.toFixed(2) + ' million pets ...')
 
 
   /* ===== PIE TOOLTIPS ===== */
 
-  var group = d3.selectAll('.arcs')
+  var group = d3.selectAll('.wedges')
 
   var toolTip = d3.select('.pieContainer').append('div').attr('class', 'toolTip pieTip');
   var tipPlaceholder = d3.select('.pieContainer').append('div').attr('class', 'placeHolder piePlaceHolder').text('move mouse over circle wedges')
@@ -175,9 +189,9 @@ function buildPieChart(sortBy) {
 
   var labelArc = d3.arc()
     .outerRadius(outerRadius)
-    .innerRadius(innerRadius + outerRadius / 1.9);
+    .innerRadius(innerRadius + outerRadius / 1.85);
 
-  arcs.append('text')
+  var pieLabels = wedges.append('text')
     .attr('transform', function (d) {
       var placement;
       if (d.data.value / sum <= 0.10) {
@@ -199,8 +213,13 @@ function buildPieChart(sortBy) {
       };
       return anchor
     })
-
+    .attr('d', arc)
+    .attr('opacity', 0.25)
+    .transition().duration(500)
+    .delay(100)
+    .attr('opacity', 1)
 }
+
 
 
 
@@ -327,7 +346,7 @@ function buildStackChart() {
   var info = d3.select('.barContainer')
     .append('p')
     .attr('class', 'info barInfo')
-    .text('of ' + data[1].value.toFixed(1) + ' million households with pets...')
+    .text('of ' + data[1].value.toFixed(1) + ' million households with pets ...')
 
 }
 
@@ -355,7 +374,6 @@ function buildBarChart() {
     .data(data)
     .enter()
     .append('g');
-
 
   /* ===== HORIZONTAL BARS =====*/
 
@@ -390,8 +408,7 @@ function buildBarChart() {
     .attr('y', function (d, i) {
       return i * (barSpacing);
     })
-    .attr('dy', 20)
-    .attr('font-size', 15)
+    .attr('dy', 24)
 
   var sum = d3.sum(data, function (d) {
     return d.value;
@@ -434,13 +451,28 @@ function buildBarChart() {
     });
 
 
-  /* ===== BAR CHART INFO ===== */
+  /* ===== BAR CHART NOTE ===== */
 
   var info = d3.select('.barContainer')
     .append('p')
     .attr('class', 'info noteInfo')
-    .text('numbers and percentages include households with more than one pet')
+    .text('numbers include households with more than one pet')
 
+  
+  /* ===== WIPE EFFECT ===== */
 
+  var wipe = barSVG.append('clipPath')
+    .attr('id', 'leftWipe')
+    .append('rect')
+    .attr('x', 0)
+    .attr('y', 0)
+    .attr('width', 0)
+    .attr('height', barH)
+    .transition()
+    .delay(400)
+    .duration(750)
+    .attr('width', barW)
+
+    group.attr('clip-path', 'url(#leftWipe)');
 
 }
