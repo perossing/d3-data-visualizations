@@ -1,8 +1,6 @@
-var d3;
-var data;
-
+var d3
+var data
 var colorPalette = ['#8adaf5', '#ffbf80', '#e6d299', '#d2c0ac', '#96e9d4', '#c7e963', '#ffadad']
-
 
 /* === SET DATA & CALL BUILD-CHART FUNCTIONS === */
 
@@ -26,14 +24,12 @@ d3.json('data.json', function (dataset) {
   buildBarChart()
 })
 
-
-/* ===== INPUT & ONCLICK TO SORT & RESET PIE CHART ===== */
-
+/* ===== INPUT & ON-CLICK TO SORT & RESET PIE CHART ===== */
 
 d3.select('input[value=\'number\']').property('checked', true)
 
 var input = d3.selectAll('.sortChart')
-  .on('change', sortChart);
+  .on('change', sortChart)
 
 var numberRadio = document.querySelector('#number')
 
@@ -74,7 +70,7 @@ function sortAlpha() {
       return d3.ascending(a.name, b.name)
     })
 
-  return sortedPie;
+  return sortedPie
 }
 
 function sortNumeric() {
@@ -86,28 +82,27 @@ function sortNumeric() {
       return d3.ascending(a.value, b.value)
     })
 
-  return sortedPie;
+  return sortedPie
 }
+
 
 /* **************** PIE CHART **************** */
 
-// *!*!*!*
-
 function buildPieChart(sortBy) {
 
-  var pieW = 500;
-  var pieH = 500;
+  var pieW = 500
+  var pieH = 500
 
-  var pieSVG = d3.select('.pieContainer').append('svg').attr('class', 'pieChart').attr('width', pieW).attr('height', pieH);
+  var pieSVG = d3.select('.pieContainer').append('svg').attr('class', 'pieChart').attr('width', pieW).attr('height', pieH)
 
-  var outerRadius = pieW / 2;
-  var innerRadius = outerRadius * 0.4;
+  var outerRadius = pieW / 2
+  var innerRadius = outerRadius * 0.4
 
   var sum = d3.sum(data, function (d) {
-    return d.value;
-  });
+    return d.value
+  })
 
-  var pie;
+  var pie
 
   if (sortBy === 'alpha') {
     pie = sortAlpha()
@@ -120,20 +115,18 @@ function buildPieChart(sortBy) {
     .outerRadius(outerRadius)
     .padAngle(.04)
     .padRadius(100)
-    .cornerRadius(4);
-
+    .cornerRadius(4)
 
   var wedges = pieSVG.selectAll('g.arc')
     .data(pie(data))
     .enter()
     .append('g')
     .attr('class', 'wedges')
-    .attr('transform', 'translate(' + outerRadius + ', ' + outerRadius + ')');
-  
+    .attr('transform', 'translate(' + outerRadius + ', ' + outerRadius + ')')  
 
   wedges.append('path')
     .attr('fill', function (d, i) {
-      return colorPalette[i];
+      return colorPalette[i]
     })
     .attr('d', arc)
     .attr('opacity', 0.75)
@@ -147,12 +140,11 @@ function buildPieChart(sortBy) {
     .attr('class', 'info pieInfo')
     .text('of ' + sum.toFixed(2) + ' million pets ...')
 
-
   /* ===== PIE TOOLTIPS ===== */
 
   var group = d3.selectAll('.wedges')
 
-  var toolTip = d3.select('.pieContainer').append('div').attr('class', 'toolTip pieTip');
+  var toolTip = d3.select('.pieContainer').append('div').attr('class', 'toolTip pieTip')
   var tipPlaceholder = d3.select('.pieContainer').append('div').attr('class', 'placeHolder piePlaceHolder').text('move mouse over circle wedges')
 
   group
@@ -161,7 +153,7 @@ function buildPieChart(sortBy) {
         .style('opacity', 1)
         .transition()
         .duration(250)
-        .style('opacity', 0);
+        .style('opacity', 0)
 
       toolTip.style('display', 'inline-block')
         .text(((d.value / sum) * 100).toFixed(1) + '% are ' + d.data.name)
@@ -169,48 +161,49 @@ function buildPieChart(sortBy) {
         .transition()
         .duration(250)
         .style('opacity', 1)
-    });
+    })
+    
   group
     .on('mouseout', function (d) {
       toolTip.style('display', 'none')
         .style('opacity', 1)
         .transition()
         .duration(250)
-        .style('opacity', 0);
+        .style('opacity', 0)
 
       tipPlaceholder
         .style('opacity', 0)
         .transition()
         .duration(250)
-        .style('opacity', 1);
-    });
+        .style('opacity', 1)
+    })
 
   /* ===== ARC LABELS ===== */
 
   var labelArc = d3.arc()
     .outerRadius(outerRadius)
-    .innerRadius(innerRadius + outerRadius / 1.85);
+    .innerRadius(innerRadius + outerRadius / 1.85)
 
   var pieLabels = wedges.append('text')
     .attr('transform', function (d) {
-      var placement;
+      var placement
       if (d.data.value / sum <= 0.10) {
-        var midAngle = d.endAngle < Math.PI ? d.startAngle / 2 + d.endAngle / 2 : d.startAngle / 2 + d.endAngle / 2 + Math.PI;
-        placement = 'translate(' + labelArc.centroid(d)[0] + ',' + labelArc.centroid(d)[1] + ') rotate(-90) rotate(' + (midAngle * 180 / Math.PI) + ')';
+        var midAngle = d.endAngle < Math.PI ? d.startAngle / 2 + d.endAngle / 2 : d.startAngle / 2 + d.endAngle / 2 + Math.PI
+        placement = 'translate(' + labelArc.centroid(d)[0] + ',' + labelArc.centroid(d)[1] + ') rotate(-90) rotate(' + (midAngle * 180 / Math.PI) + ')'
       } else {
-        placement = 'translate(' + arc.centroid(d) + ')';
+        placement = 'translate(' + arc.centroid(d) + ')'
       }
-      return placement;
+      return placement
     })
     .attr('dy', '0.35em')
     .text(function (d) {
-      return d.data.name + ': ' + (d.value).toFixed(1);
+      return d.data.name + ': ' + (d.value).toFixed(1)
     })
     .attr('text-anchor', function (d) {
-      var anchor = d.endAngle < Math.PI ? 'end' : 'start';
+      var anchor = d.endAngle < Math.PI ? 'end' : 'start'
       if (d.value / sum >= 0.10) {
         anchor = 'middle'
-      };
+      }
       return anchor
     })
     .attr('d', arc)
@@ -221,22 +214,20 @@ function buildPieChart(sortBy) {
 }
 
 
-
-
 /* **************** STACK CHART **************** */
 
 function buildStackChart() {
 
-  var stackW = 125;
-  var stackH = 490;
+  var stackW = 125
+  var stackH = 490
 
-  var stackSVG = d3.select('.stackContainer').append('svg').attr('width', stackW).attr('height', stackH);
+  var stackSVG = d3.select('.stackContainer').append('svg').attr('width', stackW).attr('height', stackH)
 
   var sum = d3.sum(data, function (d) {
-    return d.value;
-  });
+    return d.value
+  })
 
-  var barSum = 0;
+  var barSum = 0
 
   var stackPalette = ['#aaa', '#664db3']
 
@@ -255,7 +246,7 @@ function buildStackChart() {
   var group = stackSVG.selectAll('g')
     .data(data)
     .enter()
-    .append('g');
+    .append('g')
 
   var bars = group
     .append('rect')
@@ -269,13 +260,13 @@ function buildStackChart() {
     })
     .attr('width', xScale.bandwidth())
     .attr('height', function (d, i) {
-      return yScale(d.value);
+      return yScale(d.value)
     }, barSum = 0)
     .attr('fill', function (d, i) {
-      return stackPalette[i];
+      return stackPalette[i]
     })
     .attr('stroke', '#fff')
-    .attr('stroke-width', 2);
+    .attr('stroke-width', 2)
 
   /* ===== STACK CHART LABELS ===== */
 
@@ -283,10 +274,10 @@ function buildStackChart() {
     .append('text')
     .attr('class', 'stackLabels')
     .text(function (d) {
-      return d.value;
+      return d.value
     })
-    .attr('text-anchor', 'end')
-    .attr('x', stackW * 0.8)
+    .attr('text-anchor', 'middle')
+    .attr('x', stackW * 0.65)
     .attr('y', function (d, i) {
       if (i === 0) last = 0
       else last = i - 1
@@ -307,7 +298,7 @@ function buildStackChart() {
     }, barSum = 0)
     .attr('y', 30)
     .text(function (d) {
-      return d.name;
+      return d.name
     })
     .attr('text-anchor', 'end')
     .attr('fill', function (d, i) {
@@ -318,7 +309,7 @@ function buildStackChart() {
 
   /* ===== STACK CHART TOOLTIPS ===== */
 
-  var toolTip = d3.select('.stackContainer').append('div').attr('class', 'stackTip');
+  var toolTip = d3.select('.stackContainer').append('div').attr('class', 'stackTip')
 
   group
     .on('mouseover', function (d) {
@@ -331,15 +322,15 @@ function buildStackChart() {
         .transition()
         .duration(250)
         .style('opacity', 0.85)
-    });
+    })
   group
     .on('mouseout', function (d) {
       toolTip.style('display', 'none')
         .style('opacity', 0.85)
         .transition()
         .duration(250)
-        .style('opacity', 0);
-    });
+        .style('opacity', 0)
+    })
 
   /* ===== STACK CHART DATA in BAR CHART INFO ===== */
 
@@ -347,33 +338,33 @@ function buildStackChart() {
     .append('p')
     .attr('class', 'info barInfo')
     .text('of ' + data[1].value.toFixed(1) + ' million households with pets ...')
-
 }
+
 
 /* **************** BAR CHART **************** */
 
 function buildBarChart() {
 
-  var barW = 325;
-  var barH = 330;
+  var barW = 325
+  var barH = 330
 
-  var barSVG = d3.select('.barContainer').append('svg').attr('width', barW).attr('height', barH);
+  var barSVG = d3.select('.barContainer').append('svg').attr('width', barW).attr('height', barH)
 
-  var barSpacing = barH / data.length;
-  var barThickness = barH / data.length - 3;
+  var barSpacing = barH / data.length
+  var barThickness = barH / data.length - 3
 
   var xScale = d3.scaleLinear()
     .domain([0, 61])
-    .range([0, barW]);
+    .range([0, barW])
 
   var yScale = d3.scaleLinear()
     .domain([0, data.length])
-    .range([barH, 0]);
+    .range([barH, 0])
 
   var group = barSVG.selectAll('g')
     .data(data)
     .enter()
-    .append('g');
+    .append('g')
 
   /* ===== HORIZONTAL BARS =====*/
 
@@ -384,13 +375,13 @@ function buildBarChart() {
       return i * (barSpacing)
     })
     .attr('width', function (d) {
-      return xScale(d.value);
+      return xScale(d.value)
     })
     .attr('height', function (d) {
-      return barH - yScale(barThickness / barSpacing);
+      return barH - yScale(barThickness / barSpacing)
     })
     .attr('fill', function (d, i) {
-      return colorPalette[i];
+      return colorPalette[i]
     })
     .attr('rx', 3)
     .attr('ry', 3)
@@ -401,23 +392,22 @@ function buildBarChart() {
     .append('text')
     .attr('class', 'barLabel')
     .text(function (d, i) {
-      return d.name + ', ' + d.value;
+      return d.name + ', ' + d.value
     })
     .attr('text-anchor', 'start')
     .attr('x', 25)
     .attr('y', function (d, i) {
-      return i * (barSpacing);
+      return i * (barSpacing)
     })
     .attr('dy', 24)
 
   var sum = d3.sum(data, function (d) {
-    return d.value;
-  });
-
+    return d.value
+  })
 
   /* ===== BAR CHART TOOLTIPS ===== */
 
-  var toolTip = d3.select('.barContainer').append('div').attr('class', 'toolTip barTip');
+  var toolTip = d3.select('.barContainer').append('div').attr('class', 'toolTip barTip')
   var tipPlaceholder = d3.select('.barContainer').append('div').attr('class', 'placeHolder barPlaceHolder').text('move mouse over bars')
 
   group
@@ -426,7 +416,7 @@ function buildBarChart() {
         .style('opacity', 1)
         .transition()
         .duration(250)
-        .style('opacity', 0);
+        .style('opacity', 0)
 
       toolTip.style('display', 'inline-block')
         .text(((d.value / sum) * 100).toFixed(1) + '% have ' + d.name)
@@ -434,22 +424,21 @@ function buildBarChart() {
         .transition()
         .duration(250)
         .style('opacity', 1)
-    });
+    })
   group
     .on('mouseout', function (d) {
       toolTip.style('display', 'none')
         .style('opacity', 1)
         .transition()
         .duration(250)
-        .style('opacity', 0);
+        .style('opacity', 0)
 
       tipPlaceholder
         .style('opacity', 0)
         .transition()
         .duration(250)
-        .style('opacity', 1);
-    });
-
+        .style('opacity', 1)
+    })
 
   /* ===== BAR CHART NOTE ===== */
 
@@ -457,7 +446,6 @@ function buildBarChart() {
     .append('p')
     .attr('class', 'info noteInfo')
     .text('numbers include households with more than one pet')
-
   
   /* ===== WIPE EFFECT ===== */
 
@@ -473,6 +461,6 @@ function buildBarChart() {
     .duration(750)
     .attr('width', barW)
 
-    group.attr('clip-path', 'url(#leftWipe)');
+  group.attr('clip-path', 'url(#leftWipe)')
 
 }
