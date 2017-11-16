@@ -45,14 +45,14 @@ function sortChart() {
     data = dataset.animals
 
     d3.selectAll('wedges')
-    .attr('opacity', 1)
-    .transition().duration(500)
-    .attr('opacity', 0.75)
+      .attr('opacity', 1)
+      .transition().duration(500)
+      .attr('opacity', 0.75)
 
     d3.selectAll('pieLabels')
-    .attr('opacity', 1)
-    .transition().duration(500)
-    .attr('opacity', 0.25)
+      .attr('opacity', 1)
+      .transition().duration(500)
+      .attr('opacity', 0.25)
 
     d3.selectAll('.pieChart').remove()
     d3.selectAll('.pieInfo').remove()
@@ -122,7 +122,7 @@ function buildPieChart(sortBy) {
     .enter()
     .append('g')
     .attr('class', 'wedges')
-    .attr('transform', 'translate(' + outerRadius + ', ' + outerRadius + ')')  
+    .attr('transform', 'translate(' + outerRadius + ', ' + outerRadius + ')')
 
   wedges.append('path')
     .attr('fill', function (d, i) {
@@ -162,7 +162,7 @@ function buildPieChart(sortBy) {
         .duration(250)
         .style('opacity', 1)
     })
-    
+
   group
     .on('mouseout', function (d) {
       toolTip.style('display', 'none')
@@ -228,6 +228,7 @@ function buildStackChart() {
   })
 
   var barSum = 0
+  var last;
 
   var stackPalette = ['#aaa', '#664db3']
 
@@ -374,9 +375,6 @@ function buildBarChart() {
     .attr('y', function (d, i) {
       return i * (barSpacing)
     })
-    .attr('width', function (d) {
-      return xScale(d.value)
-    })
     .attr('height', function (d) {
       return barH - yScale(barThickness / barSpacing)
     })
@@ -385,6 +383,11 @@ function buildBarChart() {
     })
     .attr('rx', 3)
     .attr('ry', 3)
+    // bar width is animated
+    .transition().delay(400).duration(750)
+    .attr('width', function (d) {
+      return xScale(d.value)
+    })
 
   /* ===== BAR LABELS =====*/
 
@@ -400,6 +403,10 @@ function buildBarChart() {
       return i * (barSpacing)
     })
     .attr('dy', 24)
+    .attr('opacity', 0)
+    .transition().delay(500).duration(1000)
+    .attr('opacity', 1)
+
 
   var sum = d3.sum(data, function (d) {
     return d.value
@@ -446,21 +453,5 @@ function buildBarChart() {
     .append('p')
     .attr('class', 'info noteInfo')
     .text('numbers include households with more than one pet')
-  
-  /* ===== WIPE EFFECT ===== */
-
-  var wipe = barSVG.append('clipPath')
-    .attr('id', 'leftWipe')
-    .append('rect')
-    .attr('x', 0)
-    .attr('y', 0)
-    .attr('width', 0)
-    .attr('height', barH)
-    .transition()
-    .delay(400)
-    .duration(750)
-    .attr('width', barW)
-
-  group.attr('clip-path', 'url(#leftWipe)')
 
 }

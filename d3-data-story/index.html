@@ -1,38 +1,46 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Pets in U.S.</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css?family=Barlow:400,500,700" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://d3js.org/d3.v4.min.js"></script>
-    <script src="script.js" defer></script>
-  </head>
 
-  
-  <body>
+<head>
+  <title>Pets in U.S.</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Barlow:400,500,700" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <script src="script.js" defer></script>
+</head>
+
+
+<body>
 
   <h1>Pet Ownership in the U.S. &#8211; 2017</h1>
-  <p class="source">source: <a href="http://www.americanpetproducts.org/press_industrytrends.asp" target="_blank">americanpetproducts.org</a></p>
+  <p class="source">source:
+    <a href="http://www.americanpetproducts.org/press_industrytrends.asp" target="_blank">americanpetproducts.org</a>
+  </p>
 
-    <div class="container pieContainer">
-      <h2>Number of Pets: <span>(millions)</span></h2>
+  <div class="container pieContainer">
+    <h2>Number of Pets:
+      <span>(millions)</span>
+    </h2>
     <form class="sortSelect">
-      <label><input type="radio" name="sortChart" id="number" value="number" class="sortChart" checked="true">lowest to highest number</label>
+      <label>
+        <input type="radio" name="sortChart" id="number" value="number" class="sortChart" checked="true">lowest to highest number</label>
       <br/>
-      <label><input type="radio" name="sortChart" id="alpha" value="alpha" checked="true" class="sortChart">alphabetical</label>
+      <label>
+        <input type="radio" name="sortChart" id="alpha" value="alpha" checked="true" class="sortChart">alphabetical</label>
     </form>
-      
-    </div>
 
-    <div class="container stackContainer">
-      <h2>Number of Households with Pets: <span>(millions)</span></h2>
-    </div>
-    <div class="container barContainer"></div>
+  </div>
 
+  <div class="container stackContainer">
+    <h2>Number of Households:
+      <span>(millions)</span>
+    </h2>
+  </div>
+  <div class="container barContainer"></div>
 
+</body>
 
-  </body>
 </html>

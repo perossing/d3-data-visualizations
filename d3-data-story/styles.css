@@ -3,7 +3,7 @@
 } */
 
 body {
-  font-family: 'Barlow', sans-serif;
+  font-family: "Barlow", sans-serif;
   padding: 5px 25px;
 }
 
@@ -43,6 +43,7 @@ form {
 }
 
 .pieContainer {
+  width: 505px;
   padding-left: 50px;
 }
 
@@ -172,5 +173,4 @@ svg {
   top: 585px;
   left: 1010px;
   color: #666;
-
 }
