@@ -138,7 +138,7 @@ function buildPieChart(sortBy) {
   var info = d3.select('.pieContainer')
     .append('p')
     .attr('class', 'info pieInfo')
-    .text('of ' + sum.toFixed(2) + ' million pets ...')
+    .text('Of ' + sum.toFixed(2) + ' million pets ...')
 
   /* ===== PIE TOOLTIPS ===== */
 
@@ -338,7 +338,7 @@ function buildStackChart() {
   var info = d3.select('.barContainer')
     .append('p')
     .attr('class', 'info barInfo')
-    .text('of ' + data[1].value.toFixed(1) + ' million households with pets ...')
+    .text('Of ' + data[1].value.toFixed(1) + ' million households with pets ...')
 }
 
 
