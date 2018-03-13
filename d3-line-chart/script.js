@@ -1,16 +1,14 @@
-var data;
-var d3;
-var w = 800;
-var h = 400;
-var padding = 20;
-var svg = d3.select('.chart').append('svg').attr('width', w).attr('height', h);
-var clipDivide = 0.62 * w;
+let data;
+let d3 = window.d3;
+let w = 800, h = 400, padding = 20;
+let svg = d3.select('.chart').append('svg').attr('width', w).attr('height', h);
+let clipDivide = 0.62 * w;  // proportion for widths of clip paths to contain shading of upper lines
 
 function dateConverter(d) {
-    var dateString = (d.YYYYMM)
-    var year = dateString.substring(0, 4);
-    var month = dateString.substring(4, 6);
-    var date = new Date(year, month - 1)
+    let dateString = (d.YYYYMM)
+    let year = dateString.substring(0, 4);
+    let month = dateString.substring(4, 6);
+    let date = new Date(year, month - 1)
     return date;
 }
 
@@ -31,7 +29,7 @@ function buildLineChart(clipDivide) {
 
     /* ==== X & Y SCALES ===== */
 
-    var xScale = d3.scaleTime()
+    let xScale = d3.scaleTime()
         .domain([d3.min(data, function (d) {
                 return d.date
             }),
@@ -41,14 +39,14 @@ function buildLineChart(clipDivide) {
         ])
         .rangeRound([padding, w - padding]);
 
-    var yScale = d3.scaleLinear()
+    let yScale = d3.scaleLinear()
         .domain([0, 1])
         .rangeRound([h - padding, padding])
         .nice();
 
     /* ==== LINES w transition ===== */
 
-    var wipe = svg.append('clipPath')
+    let wipe = svg.append('clipPath')
         .attr('id', 'chart-area')
         .append('rect')
         .attr('x', padding)
@@ -59,7 +57,7 @@ function buildLineChart(clipDivide) {
         .duration(1000)
         .attr('width', w - padding * 2)
 
-    var nuclearLine = d3.line()
+    let nuclearLine = d3.line()
         .x(function (d) {
             return xScale(d.date)
         })
@@ -67,7 +65,7 @@ function buildLineChart(clipDivide) {
             return yScale(d.nuclear)
         });
 
-    var renewable = d3.line()
+    let renewableLine = d3.line()
         .x(function (d) {
             return xScale(d.date)
         })
@@ -84,12 +82,12 @@ function buildLineChart(clipDivide) {
     svg.append('path')
         .datum(data)
         .attr('class', 'line renewable')
-        .attr('d', renewable)
+        .attr('d', renewableLine)
         .attr('clip-path', 'url(#chart-area)');
 
     /* ==== AREAS w shading ===== */
 
-    var nuclearArea = d3.area()
+    let nuclearArea = d3.area()
         .x(function (d) {
             return xScale(d.date);
         })
@@ -100,7 +98,7 @@ function buildLineChart(clipDivide) {
             return yScale(d.nuclear);
         });
 
-    var renewableArea = d3.area()
+    let renewableArea = d3.area()
         .x(function (d) {
             return xScale(d.date);
         })
@@ -111,7 +109,7 @@ function buildLineChart(clipDivide) {
             return yScale(d.renewable);
         });
 
-    var nuclearGradient = svg.append('defs').append('linearGradient')
+    let nuclearGradient = svg.append('defs').append('linearGradient')
         .attr('id', 'nuclear-gradient')
         .attr('x1', '0%')
         .attr('x2', '0%')
@@ -126,7 +124,7 @@ function buildLineChart(clipDivide) {
         .style('stop-color', '#fff')
         .style('stop-opacity', 1)
 
-    var renewableGradient = svg.append('defs').append('linearGradient')
+    let renewableGradient = svg.append('defs').append('linearGradient')
         .attr('id', 'renewable-gradient')
         .attr('x1', '0%')
         .attr('x2', '0%')
@@ -182,19 +180,19 @@ function buildLineChart(clipDivide) {
 
     /* ==== AXES ===== */
 
-    var labelScale = d3.scaleLinear()
+    let labelScale = d3.scaleLinear()
         .domain([2000, 2017])
         .rangeRound([padding, w - padding]);
 
-    var xAxis = d3.axisBottom()
+    let xAxis = d3.axisBottom()
         .scale(labelScale)
         .ticks(15)
         .tickFormat(d3.format('d'));
 
-    var yAxis = d3.axisLeft()
+    let yAxis = d3.axisLeft()
         .scale(yScale);
 
-    var gridLines = d3.axisTop()
+    let gridLines = d3.axisTop()
         .scale(labelScale)
         .ticks(15)
         .tickSize(h - padding * 2)
@@ -223,7 +221,7 @@ function buildLineChart(clipDivide) {
 
     /* ===== TOOLTIPS ===== */
 
-    var leftSide = svg.append('rect')
+    let leftSide = svg.append('rect')
         .attr('id', 'left-side')
         .attr('x', padding)
         .attr('y', 100)
@@ -233,7 +231,7 @@ function buildLineChart(clipDivide) {
         .attr('fill', 'white')
         .attr('opacity', 0)
 
-    var rightSide = svg.append('rect')
+    let rightSide = svg.append('rect')
         .attr('id', 'right-side')
         .attr('x', clipDivide + padding)
         .attr('y', 50)
