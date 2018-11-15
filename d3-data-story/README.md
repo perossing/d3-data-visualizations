@@ -2,4 +2,6 @@
 
 Multiple chart types & data used with design (color, layout, type) to tell a story with data
 
-[view](https://rawgit.com/perossing/d3-data-visualizations/master/d3-data-story/index.html)
+view at https://d3-data-story.glitch.me/
+
+*note: design is not responsive, best viewed on full-size monitor*
