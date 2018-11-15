@@ -4,6 +4,7 @@ multiple projects using d3 for different types of data visualizations using a va
 
 
 **SUMMARY OF PROJECTS:**
+-----
 
 ## d3 data story:
 
