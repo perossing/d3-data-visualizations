@@ -54,10 +54,12 @@ Data from random sample plotting age & income:
 - users can delete data points on click
 - scales and axes adjust with new/deleted data points
 
-*to do:*
-- users can choose to delete or dim data points on click
-- tooltips showing values
-- styling
-
 view at https://d3-interactive-scatterplot.glitch.me/
+
+
+##nd3-svg-barcharts
+
+[horizontal bar chart](https://d3-horizontal-bar-chart.glitch.me/)
+
+[vertical bar chart](https://d3-svg-barchart.glitch.me/)
 
