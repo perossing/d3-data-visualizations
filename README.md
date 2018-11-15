@@ -10,3 +10,14 @@ Multiple chart types & data used with design (color, layout, type) to tell a sto
 view at https://d3-data-story.glitch.me/
 
 *note: design is not responsive, best viewed on full-size monitor*
+
+
+# d3 line chart
+
+timeline with two variables
+
+- transitions, clip paths, and gradients
+- buttons to show different data sets
+- data from U.S. Energy Information Administration
+
+view at https://d3-timeline-chart.glitch.me/
