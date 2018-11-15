@@ -14,7 +14,7 @@ Average ticket price per year is indicated with a label next to each circle and 
 
 Axes labels and legend are added with html/css.
 
-[view](https://rawgit.com/perossing/d3-data-visualizations/master/d3-scatter-plot/multivariate-plot/index.html)
+view at https://d3-scatterplot.glitch.me/
 
 
 ### 2) Interactive Scatter Plot
@@ -31,4 +31,4 @@ Data from random sample plotting age & income:
 - tooltips showing values
 - styling
 
-[view](https://rawgit.com/perossing/d3-data-visualizations/master/d3-scatter-plot/interactive-plot/index.html)
+view at https://d3-interactive-scatterplot.glitch.me/
