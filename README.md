@@ -57,7 +57,7 @@ Data from random sample plotting age & income:
 view at https://d3-interactive-scatterplot.glitch.me/
 
 
-##nd3-svg-barcharts
+## d3-svg-barcharts
 
 [horizontal bar chart](https://d3-horizontal-bar-chart.glitch.me/)
 
