@@ -1,6 +1,6 @@
 # d3-data-visualizations
 
-multiple projects using d3 for different types of data visualizations using a variety of public data in json and csv format
+multiple projects using d3 for different types of data visualizations using a variety of public data in json and csv format.  Most use svg.
 
 
 **SUMMARY OF PROJECTS:**
@@ -62,4 +62,13 @@ view at https://d3-interactive-scatterplot.glitch.me/
 [horizontal bar chart](https://d3-horizontal-bar-chart.glitch.me/)
 
 [vertical bar chart](https://d3-svg-barchart.glitch.me/)
+
+
+## Text-based table from json data.
+
+- Special table rows are inserted as headings to separate categories, appearing only before the first item in each group.
+
+- Table colors denote groups and high values.
+
+- preview at https://d3-json-html.glitch.me
 
