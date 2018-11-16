@@ -57,18 +57,28 @@ Data from random sample plotting age & income:
 view at https://d3-interactive-scatterplot.glitch.me/
 
 
-## d3-svg-barcharts
+## d3 svg barcharts:
 
 [horizontal bar chart](https://d3-horizontal-bar-chart.glitch.me/)
 
 [vertical bar chart](https://d3-svg-barchart.glitch.me/)
 
 
-## Text-based table from json data.
+## Text-based table from json data:
 
 - Special table rows are inserted as headings to separate categories, appearing only before the first item in each group.
 
 - Table colors denote groups and high values.
 
 - preview at https://d3-json-html.glitch.me
+
+## d3 small multiples:
+
+- Four bar charts built with one function from USDA data put into json format.
+- Compares food imports to US from 2000 -2014
+- charts drawn with svg
+- svg tooltips on hover
+
+view at https://d3-small-multiple-svg-json.glitch.me/
+
 
